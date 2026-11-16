@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- No NuGet dependencies: everything used here ships with .NET 8 on Windows. -->
+  <PropertyGroup>
+    <!-- WinExe: no console window appears when the agent starts at login. -->
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <AssemblyName>nrvl-agent</AssemblyName>
+    <RootNamespace>NrvlAgent</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+</Project>

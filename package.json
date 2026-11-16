@@ -1,0 +1,36 @@
+{
+  "name": "nrvl-stream-deck",
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "hub": "node apps/hub/src/index.ts",
+    "pair": "node apps/hub/src/cli.ts pair",
+    "devices": "node apps/hub/src/cli.ts devices",
+    "revoke": "node apps/hub/src/cli.ts revoke",
+    "dev": "npm run dev -w @nrvl/web",
+    "build": "npm run build -w @nrvl/web",
+    "start": "npm run build && npm run hub",
+    "typecheck": "tsc -p packages/shared && tsc -p apps/hub && tsc -p apps/web",
+    "test": "node --test packages/shared/test/*.test.ts apps/hub/test/*.test.ts",
+    "test:agent": "swift test --package-path agents/macos",
+    "test:e2e": "node apps/hub/test/e2e-mac.ts",
+    "audit": "node apps/hub/src/cli.ts audit",
+    "backup": "node apps/hub/src/cli.ts backup",
+    "restore": "node apps/hub/src/cli.ts restore",
+    "service": "node apps/hub/src/cli.ts service",
+    "check": "npm run typecheck && npm test && npm run test:agent && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  },
+  "license": "MIT",
+  "private": true
+}
